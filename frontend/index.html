@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroNet - Neural Wellness Protocol (NEURO Token)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <div class="scanline"></div>
+    
+    <div class="container">
+        <header class="cyber-header">
+            <div class="logo-section">
+                <img src="pictures/logo.png" alt="NeuroNet Logo" class="logo-img">
+            </div>
+            <button id="connectBtn" class="cyber-connect-btn">
+                <span class="btn-text">CONNECT NEURAL LINK</span>
+                <span class="btn-glow"></span>
+            </button>
+        </header>
+
+        <div id="walletStatus" class="wallet-status hidden">
+            <div class="cyber-card status-card">
+                <div class="card-glow"></div>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-icon">🆔</span>
+                        <div class="status-info">
+                            <span class="status-label">NEURAL ID</span>
+                            <span class="status-value" id="walletAddress">---</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">💎</span>
+                        <div class="status-info">
+                            <span class="status-label">NEURO BALANCE</span>
+                            <span class="status-value token-balance" id="tokenBalance">0.00</span>
+                        </div>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">🌐</span>
+                        <div class="status-info">
+                            <span class="status-label">NETWORK</span>
+                            <span class="status-value network">SEPOLIA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main id="mainDashboard" class="hidden">
+            <section class="dashboard-grid">
+                <div class="cyber-card avatar-card">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <span class="header-icon">👤</span>
+                        <h2>NEURAL AVATAR</h2>
+                    </div>
+                    
+                    <div class="gender-selector">
+                        <button class="gender-btn active" data-gender="male">
+                            <span class="btn-content">
+                                <span class="gender-icon">♂</span>
+                                <span>MALE</span>
+                            </span>
+                        </button>
+                        <button class="gender-btn" data-gender="female">
+                            <span class="btn-content">
+                                <span class="gender-icon">♀</span>
+                                <span>FEMALE</span>
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <div class="avatar-display">
+                        <div class="avatar-container">
+                            <img id="avatarImage" src="pictures/male-neutral.png" alt="Avatar" class="avatar-img">
+                            <div class="avatar-ring"></div>
+                        </div>
+                        
+                        <div class="mood-meter">
+                            <div class="meter-label">WELLNESS LEVEL</div>
+                            <div class="meter-bar">
+                                <div id="moodBarFill" class="meter-fill" style="width: 50%">
+                                    <div class="meter-shine"></div>
+                                </div>
+                            </div>
+                            <div class="meter-value" id="moodPercentage">50%</div>
+                        </div>
+                        
+                        <div class="mood-status" id="moodStatus">NEUTRAL STATE</div>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="cyber-card stat-card">
+                        <div class="card-glow"></div>
+                        <div class="stat-icon-wrapper">
+                            <div class="stat-icon">🧠</div>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="wellnessScore">--</div>
+                            <div class="stat-label">WELLNESS</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card stat-card">
+                        <div class="card-glow"></div>
+                        <div class="stat-icon-wrapper">
+                            <div class="stat-icon">🔥</div>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="streakDays">0</div>
+                            <div class="stat-label">STREAK</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card stat-card">
+                        <div class="card-glow"></div>
+                        <div class="stat-icon-wrapper">
+                            <div class="stat-icon">✨</div>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="totalCheckins">0</div>
+                            <div class="stat-label">SESSIONS</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cyber-card stat-card">
+                        <div class="card-glow"></div>
+                        <div class="stat-icon-wrapper">
+                            <div class="stat-icon">💰</div>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="lifetimeEarned">0</div>
+                            <div class="stat-label">NEURO EARNED</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cyber-card assessment-section">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="header-icon">📊</span>
+                    <h2>DAILY NEURAL ASSESSMENT</h2>
+                </div>
+                
+                <div class="assessment-content">
+                    <div class="assessment-group">
+                        <label class="cyber-label">SELECT YOUR EMOTIONAL STATE</label>
+                        <div class="mood-faces-grid" id="moodFacesGrid">
+                            </div>
+                    </div>
+
+                    <div class="assessment-group">
+                        <label class="cyber-label">
+                            <span>STRESS LEVEL</span>
+                            <span class="value-display" id="stressValue">50</span>
+                        </label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="stressLevel" class="cyber-slider" min="0" max="100" value="50">
+                            <div class="slider-track"></div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>CALM</span>
+                            <span>STRESSED</span>
+                        </div>
+                    </div>
+
+                    <div class="assessment-group">
+                        <label class="cyber-label">
+                            <span>ENERGY LEVEL</span>
+                            <span class="value-display" id="energyValue">50</span>
+                        </label>
+                        <div class="slider-wrapper">
+                            <input type="range" id="energyLevel" class="cyber-slider" min="0" max="100" value="50">
+                            <div class="slider-track"></div>
+                        </div>
+                        <div class="slider-labels">
+                            <span>DRAINED</span>
+                            <span>ENERGIZED</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="submitAssessment" class="cyber-btn primary">
+                    <span class="btn-content">SUBMIT ASSESSMENT</span>
+                    <span class="btn-glow"></span>
+                </button>
+
+                <div id="assessmentResult" class="cyber-message"></div>
+            </section>
+
+            <section class="cyber-card quiz-section">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="header-icon">🎯</span>
+                    <h2>COGNITIVE CHALLENGE</h2>
+                </div>
+                
+                <div class="quiz-content">
+                    <div id="quizQuestion" class="quiz-question">
+                        Ready to test your cognitive abilities? Engage neural interface...
+                    </div>
+                    <div id="quizOptions" class="quiz-options"></div>
+                    <button id="startQuiz" class="cyber-btn secondary">
+                        <span class="btn-content">START CHALLENGE</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    <div id="quizResult" class="cyber-message"></div>
+                </div>
+            </section>
+
+            <section class="cyber-card transfer-section">
+                <div class="card-glow"></div>
+                <div class="card-header">
+                    <span class="header-icon">💸</span>
+                    <h2>NEURO TOKEN TRANSFER</h2>
+                </div>
+                
+                <div class="transfer-form">
+                    <div class="input-group">
+                        <label class="cyber-label">RECIPIENT ADDRESS</label>
+                        <input type="text" id="transferAddress" class="cyber-input" placeholder="0x..." maxlength="42">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="cyber-label">AMOUNT (NEURO)</label>
+                        <input type="number" id="transferAmount" class="cyber-input" placeholder="0.00" step="0.01" min="0">
+                    </div>
+                    
+                    <button id="transferBtn" class="cyber-btn primary">
+                        <span class="btn-content">TRANSFER TOKENS</span>
+                        <span class="btn-glow"></span>
+                    </button>
+                    
+                    <div id="transferResult" class="cyber-message"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="cyber-footer">
+            <div class="footer-line"></div>
+            <p class="footer-text">NEURONET v2.0 | NEURO TOKEN</p>
+            <p class="footer-subtext">Your mental wellness, secured by blockchain</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

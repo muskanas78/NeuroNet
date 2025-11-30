@@ -1,172 +1,170 @@
-NeuroNet: The Decentralized Neural Wellness Protocol
+# 🧬 NeuroNet: The Decentralized Neural Wellness Protocol
+MG3012 – Blockchain Technology | Final Project  
+**Theme:** Cyberpunk / Bio-Tech  
+**Token:** NeuroToken (NEURO) – ERC-20 Custom Implementation  
+**Network:** Sepolia Testnet
 
-MG3012 - Blockchain Technology for Business | Final Project
+---
 
-Theme: Cyberpunk / Bio-Tech
-Token: NeuroToken (NEURO) - ERC-20 Custom Implementation
-Deployment Network: Sepolia Testnet
+## Team Members
+- **Muskan Ahmed (23i-4145)**
+- **Anaya Noor (23i-5521)**
 
-Team Members:
+---
 
-Muskan Ahmed (23i-4145)
+# 1. Introduction
 
-Anaya Noor (23i-5521)
+## 1.1 Problem Statement
+Traditional wellness tracking systems are centralized, opaque, and do not reward users for consistent self-assessment. This lack of incentivization results in low engagement and weak habit development. Users do not own their emotional data, nor do they gain meaningful benefits from their participation.
 
-1. Project Overview & Problem Statement
+## 1.2 Solution – NeuroNet dApp
+NeuroNet introduces a decentralized wellness ecosystem using ERC-20 tokenization, streak mechanics, and on-chain emotional tracking.  
+It provides:
+- **Self-Sovereign User Data**
+- **Tokenized Rewards via NEURO**
+- **Gamified Habit Formation**
+- **Dynamic Neural Avatar Feedback**
 
-1.1. Problem Statement
+---
 
-Traditional mental health and wellness tracking relies on centralized applications and often lacks tangible, immediate rewards for user consistency. This results in poor long-term engagement and little incentive for individuals to actively commit to regular self-assessment.
+# 2. Core Features
 
-1.2. Solution: The NeuroNet dApp
+## 2.1 Smart Contract Features (NeuroToken.sol)
 
-NeuroNet solves this by leveraging blockchain technology and gamification. By wrapping the ERC-20 standard with custom wellness logic, we create a transparent, decentralized protocol that incentivizes daily self-care.
+| Function | Type | Description |
+|---------|------|-------------|
+| `constructor()` | Write | Mints initial supply to owner. |
+| `submitMoodAssessment(mood, stress, energy)` | Core (Write) | Daily check-in. Mints tokens, updates streak, and applies bonuses. |
+| `transfer(to, amount)` | ERC-20 (Write) | Transfers NEURO tokens. |
+| `getUserStats(user)` | View | Returns mood, streak, check-ins, wellness score, and balance. |
+| `balanceOf(account)` | View | Standard ERC-20 balance lookup. |
 
-Data Ownership: User statistics (mood, streak, earnings) are stored immutably on-chain.
+---
 
-Tokenization: The NeuroToken (NEURO) provides a quantifiable, liquid reward for participation.
+## 2.2 Frontend Features (HTML/CSS/JS)
+- MetaMask + Ethers.js integration  
+- Real-time NEURO balance updates  
+- Streak counter and wellness score  
+- Dynamic Neural Avatar (visual feedback)  
+- User mood selection (emotions + sliders)  
+- Token transfer interface  
 
-Gamification: Daily check-ins earn tokens, with increasing bonuses for maintaining a Streak, encouraging habit formation.
+---
 
-2. Features and Core Functionality
+# 3. Technical Architecture
 
-2.1. Contract Functionality (NeuroToken.sol)
+## 3.1 Development Stack
 
-The smart contract serves as the backbone, handling token creation, distribution, and user state management.
+| Category | Component | Role |
+|---------|-----------|------|
+| Smart Contract | Solidity ^0.8.20 | Token logic and reward mechanism |
+| Deployment | Remix (Injected Provider) | Sepolia deployment + verification |
+| Frontend | HTML, CSS, JavaScript | UI + wallet integration |
+| Web3 Bridge | Ethers.js v5.7.2 | Contract calls and transactions |
+| Theme | Custom Cyberpunk CSS, Particles.js | Visual experience |
 
-Function
+---
 
-Type
+## 3.2 Deployed Assets
 
-Description
+| Asset | Details |
+|-------|---------|
+| **Contract Address** | `0x46C1100f7181f8De835F165aa9B744835BD0C189` |
+| **Etherscan TX Hash** | `0xd8fc18f08ae4e746a7718be17c98a4edb51ac6c020d621439405645bdb98a369` |
+| **Live dApp URL** | *(Add your hosted/Canvas link here)* |
 
-constructor
+---
 
-Write
+# 4. Installation & Usage
 
-Mints the initial supply of NEURO to the contract owner.
+## 4.1 Requirements
+- MetaMask  
+- Sepolia Testnet  
+- Browser (Chrome/Brave recommended)  
+- Node.js (optional for testing)
 
-submitMoodAssessment(moodScore, stressLevel, energyLevel)
+## 4.2 Steps to Run
 
-Core Logic (Write)
 
-Executes the daily check-in. Mints NEURO tokens to the user, applies a Streak Bonus, updates wellness metrics, and enforces the "once per day" rule.
+### 1. Clone Repository
+```bash
+git clone https://github.com/muskanas78/NeuroNet
+```
+### 2. (Optional) Install Dependencies
+```bash
+npm install
+```
 
-transfer(address to, uint256 amount)
+### 3. Configure Contract Address
 
-ERC-20 (Write)
+Update inside frontend/script.js:
 
-Allows users to spend or transfer their earned NEURO tokens.
+const CONTRACT_ADDRESS = "0x46C1100f7181f8De835F165aa9B744835BD0C189";
 
-getUserStats(address user)
+### 4. Launch Frontend
 
-View
+Open:
 
-Retrieves the user's complete on-chain profile: balance, current mood, total check-ins, and streak length.
+frontend/index.html
 
-balanceOf
+### 5. Connect Wallet
 
-ERC-20 (View)
+Click CONNECT NEURAL LINK in the interface.
 
-Returns the standard ERC-20 token balance.
-
-2.2. Frontend Functionality (index.html, script.js)
-
-Wallet Integration: Connects seamlessly via MetaMask/Ethers.js to fetch user data and sign transactions.
-
-Real-Time Data: Displays NEURO Balance, Wellness Score, Check-in Streak, and Lifetime Earnings, updating instantly post-transaction.
-
-Dynamic Avatar: The Neural Avatar dynamically changes based on the user's computed Wellness Score, providing visual feedback.
-
-Interactive Assessment: Intuitive UI for selecting mood and adjusting slider inputs for Stress/Energy.
-
-ERC-20 Transfer: Dedicated form for sending NEURO tokens to any recipient address.
-
-3. Technical Implementation Details
-
-3.1. Development Stack
-
-Category
-
-Component / Version
-
-Role
-
-Smart Contract
-
-Solidity ^0.8.20
-
-Defines token logic and minting protocol.
-
-Deployment Tool
-
-Remix IDE (Injected Provider)
-
-Used for compilation, deployment, and verification on Sepolia.
-
-Frontend Language
-
-HTML5, CSS3, JavaScript
-
-Responsive user interface design.
-
-Blockchain Bridge
-
-Ethers.js v5.7.2
-
-Connects frontend functions to the deployed contract ABI.
-
-Styling
-
-Custom Cyberpunk CSS + Particles.js
-
-Provides the immersive visual theme and animations.
-
-3.2. Deployed Assets
-
-Asset
-
-Details
-
-Deployed Contract Address
-
-0x46C1100f7181f8De835F165aa9B744835BD0C189
-
-Etherscan Transaction Hash
-
-0xd8fc18f08ae4e746a7718be17c98a4edb51ac6c020d621439405645bdb98a369
-
-Live dApp/Canvas URL
-
-[PASTE YOUR LIVE DAPP/CANVAS URL HERE]
-
-4. Setup and Run Instructions
-
-This project requires Node.js/npm and MetaMask installed in your browser.
-
-Clone/Unzip Project: Extract the NEURONET-DAPP ZIP file.
-
-Install Dependencies: (Optional, if you plan to run tests): Run npm install in the root folder.
-
-Check Contract Address: Verify that the CONTRACT_ADDRESS in frontend/script.js matches the deployed address above.
-
-Run Frontend: Open the frontend/index.html file in a modern web browser.
-
-Connect Wallet: Ensure MetaMask is set to the Sepolia Testnet and click "CONNECT NEURAL LINK."
-
-5. Submission Structure
-
-The final ZIP file contains the following structure, including the compiled contract artifacts (artifacts/) replacing the standard framework configuration files:
-
+# 5. Project Structure
+NEURONET-DAPP/
 ├── contracts/
-│ └── NeuroToken.sol
+│   └── NeuroToken.sol
 ├── frontend/
-│ ├── index.html
-│ ├── script.js
-│ └── style.css
-├── artifacts/  
-│ └── NeuroToken_Artifact.json <-- ABI and Metadata
-├── README.md
-└── screenshots/
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── artifacts/ (if mentioned in frontend, no need to create folder)
+│   └── NeuroToken_Artifact.json   # ABI + Bytecode
+├── screenshots/
+│   └── documentation.pdf
+    └── demo_link.txt
+└── README.md
+└── MIT License
 
-I will ensure the Bytecode is available in the artifacts folder for verification purposes.
+# 6. Credits
+
+Smart Contract Development, UI/UX and Frontend: Muskan Ahmed, Anaya Noor
+
+Cyberpunk Design Inspiration: Blade Runner, Ghost in the Shell, Deus Ex, CyberPunk: EdgeRunner
+
+Blockchain Tooling: Solidity, MetaMask, Remix, Ethers.js
+
+ # 7. License
+
+This project is released under the MIT License.
+
+MIT License
+
+Copyright (c) 2025 NeuroNet
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
+
+# 8. NeuroNet Landing Page
+
+<img width="1919" height="911" alt="image" src="https://github.com/user-attachments/assets/e9a8d028-b768-4a55-8f40-f669c4c717a0" />
+
+
+# 9. Future Enhancements
+
+- AI-based mood prediction
+
+- Mobile App Integration
+
+- DAO-based reward governance
+
+- Multi-chain deployment
+
+- Full analytics dashboard
+
+# 10. Conclusion
+
+NeuroNet combines blockchain incentives with wellness tracking to create a gamified, decentralized, and user-owned emotional health protocol. By merging ERC-20 tokenization with behavioral psychology, the system encourages healthier habits through transparency and tangible rewards.
+```bash
+git clone https://github.com/muskanas78/NeuroNet

@@ -71,7 +71,7 @@ It provides:
 |-------|---------|
 | **Contract Address** | `0x46C1100f7181f8De835F165aa9B744835BD0C189` |
 | **Etherscan TX Hash** | `0xd8fc18f08ae4e746a7718be17c98a4edb51ac6c020d621439405645bdb98a369` |
-| **Live dApp URL** | *(Add your hosted/Canvas link here)* |
+| **Live dApp URL** | https://www.canva.com/design/DAG6Mk2jOdE/WPjsCmoc9DeJsb4XId_HsQ/edit?utm_content=DAG6Mk2jOdE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton |
 
 ---
 
